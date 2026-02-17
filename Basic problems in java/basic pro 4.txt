@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        System.out.println("");
+        Scanner scan=new Scanner(System.in);
+        int tuitionfees=scan.nextInt();
+        int scholarship=scan.nextInt();
+        int examfee=scan.nextInt();
+        int libraryfee=scan.nextInt();
+        int scholaramount=tuitionfees*scholarship/100;
+        int remain=tuitionfees-scholaramount;
+        int payable=remain+examfee+libraryfee;
+        System.out.printf("Final Payable Fee = "+payable);
+        
+    }
+}

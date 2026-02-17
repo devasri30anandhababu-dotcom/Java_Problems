@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        
+        int distance=scan.nextInt();
+        int rate=scan.nextInt();
+        int maintenance=scan.nextInt();
+        int allowance=scan.nextInt();
+        int subsidy=scan.nextInt();
+        
+        int transport_fee=(distance*rate)+maintenance+allowance-subsidy;
+        System.out.println("Total Transport Fee = "+ transport_fee);
+        
+    }
+}

@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        System.out.println("");
+        Scanner scan=new Scanner(System.in);
+        int sales=scan.nextInt();
+        int discount=scan.nextInt();
+        int gst=scan.nextInt();
+        double discountamount=sales*discount/100;
+        double disamount=sales-discountamount;
+        double gstamount=disamount*gst/100;
+        double finalrev=disamount+gstamount;
+        System.out.printf("Final Revenue= %.1f",finalrev);
+        
+    }
+}

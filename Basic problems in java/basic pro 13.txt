@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        
+        int yieldperacre=scan.nextInt();
+        int acres=scan.nextInt();
+        int extrayield=scan.nextInt();
+        int damagedcrops=scan.nextInt();
+
+        int Finalyield=(yieldperacre*acres)+extrayield-damagedcrops;
+        System.out.println("Marketable Yield = "+Finalyield);
+        
+    }
+}

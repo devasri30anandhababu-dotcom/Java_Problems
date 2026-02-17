@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        
+        int ticketrevenue=scan.nextInt();
+        int snackrevenue=scan.nextInt();
+        int maintenance=scan.nextInt();
+        int electricity=scan.nextInt();
+
+        int Net_profit=ticketrevenue+snackrevenue-maintenance-electricity;
+        System.out.println("Net Profit = "+Net_profit);
+        
+    }
+}

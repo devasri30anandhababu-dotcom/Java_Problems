@@ -1,0 +1,17 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        System.out.println("");
+        Scanner scan=new Scanner(System.in);
+        int daysworked=scan.nextInt();
+        int wageperday=scan.nextInt();
+        int overtimebonus=scan.nextInt();
+        int maubtebabcecharge=scan.nextInt();
+        
+        int base=daysworked*wageperday;
+        int bonus=base+overtimebonus;
+        int deduct_charge=bonus-maubtebabcecharge;
+        System.out.printf("Final Weekly Wage = " + deduct_charge);
+        
+    }
+}

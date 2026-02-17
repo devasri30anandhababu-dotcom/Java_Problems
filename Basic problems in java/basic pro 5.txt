@@ -1,0 +1,18 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        System.out.println("");
+        Scanner scan=new Scanner(System.in);
+        int totalbill=scan.nextInt();
+        int service=scan.nextInt();
+        int gst=scan.nextInt();
+        int numberofpeople=scan.nextInt();
+        double aservice=totalbill*service/100;
+        double totalservice=totalbill+aservice;
+        double gstamount=totalservice*gst/100;
+        double finalbill=totalservice+gstamount;
+        double per=finalbill/numberofpeople;
+        System.out.printf("Amount Per Person = "+per);
+        
+    }
+}

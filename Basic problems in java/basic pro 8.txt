@@ -1,0 +1,17 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        System.out.println("");
+        Scanner scan=new Scanner(System.in);
+        int rodsperhr=scan.nextInt();
+        int housework=scan.nextInt();
+        int overtime=scan.nextInt();
+        int rejected=scan.nextInt();
+        
+      
+        int finalproduction=(rodsperhr*housework)+overtime-rejected;
+        
+        System.out.printf("Usable Rods = " + finalproduction);
+        
+    }
+}

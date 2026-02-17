@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        
+        int basesalary=scan.nextInt();
+        int sessions=scan.nextInt();
+        int paypersession=scan.nextInt();
+        int bonus=scan.nextInt();
+        int maintenancefee=scan.nextInt();
+
+        int salary=basesalary+(sessions*paypersession)+bonus-maintenancefee;
+        System.out.println("Final Salary = "+salary);
+        
+    }
+}

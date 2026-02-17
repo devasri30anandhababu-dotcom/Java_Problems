@@ -1,0 +1,12 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int rooms=scan.nextInt();
+        int price=scan.nextInt();
+        int servicecharges=scan.nextInt();
+        int commission=scan.nextInt();
+        int Revenue=(rooms*price)+servicecharges-commission;
+        System.out.println("Total Revenue = "+Revenue);
+    }
+}

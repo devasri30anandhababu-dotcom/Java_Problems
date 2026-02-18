@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int basecost=scan.nextInt();
+        int extraGB=scan.nextInt();
+        int rateGB=scan.nextInt();
+        int tax=scan.nextInt();
+        float total=basecost+(extraGB*rateGB);
+        float totalbill=total+(total*tax/100);
+        System.out.println("Total Bill = "+totalbill);
+    }
+}

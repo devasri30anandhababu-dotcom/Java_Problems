@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int resusage=scan.nextInt();
+        int resrate=scan.nextInt();
+        int comusage=scan.nextInt();
+        int comrate=scan.nextInt();
+        int connection=scan.nextInt();
+        int penalty=scan.nextInt();
+        int maintenance=scan.nextInt();
+        int treatment=scan.nextInt();
+        
+        int net_revenue=(resusage*resrate)+(comusage*comrate)+connection+penalty-maintenance-treatment;
+        System.out.println("Net Water Revenue = "+ net_revenue);
+    }
+}

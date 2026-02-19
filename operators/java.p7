@@ -1,0 +1,11 @@
+import java.util.*;
+public class p7 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int cartvalue=sc.nextInt();
+        int premiummember=sc.nextInt();
+        int ship=(cartvalue>999 || premiummember==1)?1:0;
+        
+        System.out.println((ship==1)?"Free Shipping": "Shipping Charges Applied");
+        }
+}

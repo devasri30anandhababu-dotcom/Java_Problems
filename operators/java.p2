@@ -1,0 +1,12 @@
+import java.util.*;
+public class p2 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int accountbalance=sc.nextInt();
+        int withdrawalamount=sc.nextInt();
+        int dailylimit=sc.nextInt();
+        int res=(withdrawalamount<=accountbalance && withdrawalamount<=dailylimit)?1:0;
+        
+        System.out.println((res==1)?"Transaction Approved": "Transaction Declined");
+        }
+}

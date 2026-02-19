@@ -1,0 +1,11 @@
+import java.util.*;
+public class p9{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int unitsconsumed=sc.nextInt();
+        int voltagefluc=sc.nextInt();
+        int electric=(unitsconsumed > 500 || voltagefluc==1)?1:0;
+        
+        System.out.println((electric==1)?"Alert Triggered":"Normal Usage");
+}
+}

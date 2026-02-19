@@ -1,0 +1,12 @@
+import java.util.*;
+public class p9{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int username=sc.nextInt();
+        int password=sc.nextInt();
+        int accountlocked=sc.nextInt();
+        int login=(username==1 && password==1 && !(accountlocked==1))?1:0;
+        
+        System.out.println((login==1)?"Login Success":"Login Failed");
+}
+}

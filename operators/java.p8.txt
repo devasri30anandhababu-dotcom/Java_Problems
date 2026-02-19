@@ -1,0 +1,11 @@
+import java.util.*;
+public class p8 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int age=sc.nextInt();
+        int idproof=sc.nextInt();
+        int movie=(age>=18 && idproof==1)?1:0;
+        
+        System.out.println((movie==1)?"Entry Allowed": "Entry Denied");
+        }
+}

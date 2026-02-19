@@ -1,0 +1,11 @@
+import java.util.*;
+public class p3 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int workinghrs=sc.nextInt();
+        int attendance=sc.nextInt();
+        int bonus=(workinghrs>40 && attendance >90)?1:0;
+        
+        System.out.println((bonus==1)?"Bonus Eligible": "Not Eligible");
+        }
+}

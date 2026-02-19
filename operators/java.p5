@@ -1,0 +1,11 @@
+import java.util.*;
+public class p5 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int salary=sc.nextInt();
+        int creditscore=sc.nextInt();
+        int loan=(salary>25000 && creditscore>700)?1:0;
+        
+        System.out.println((loan==1)?"Loan Approved": "Loan Rejected");
+        }
+}

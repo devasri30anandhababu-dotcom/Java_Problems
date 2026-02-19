@@ -1,0 +1,12 @@
+import java.util.*;
+public class p1 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int theorymarks=sc.nextInt();
+        int practicalmarks=sc.nextInt();
+        int total=theorymarks+practicalmarks;
+        int avg=total/2;
+        int res= (theorymarks>=50 && practicalmarks>=50 && avg>=60)?1:0;
+        System.out.println((res==1)?"Pass":"Fail");
+        }
+}

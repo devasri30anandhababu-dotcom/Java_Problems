@@ -1,0 +1,10 @@
+import java.util.Scanner; 
+public class p12 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int singlevalue=sc.nextInt();
+        int togglemask =sc.nextInt();
+        int signal=singlevalue ^ togglemask;
+        System.out.println("Toggled Signal = "+signal);
+    }
+}

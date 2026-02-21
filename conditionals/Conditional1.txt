@@ -1,0 +1,57 @@
+import java.util.Scanner;
+public class Conditional1 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        
+        int PerformanceRating=sc.nextInt();
+        
+        int Years=sc.nextInt();
+        sc.nextLine();
+        
+        String Department=sc.nextLine();
+        double Salary=sc.nextDouble();
+        int bonus=0;
+        double calculate_bonus;
+        System.out.print("\nPerformance Rating: "+PerformanceRating);
+        System.out.print("\nYears of Sevice: "+Years);
+        System.out.print("\nDepartment: "+Department);
+        if(PerformanceRating >=3){
+            if(Department.equalsIgnoreCase("Critical")){
+                if(PerformanceRating ==5 && Years > 5){
+                    bonus=25;
+                }
+                else if(PerformanceRating ==4 && Years > 10){
+                   bonus=22;
+                }
+                else if(PerformanceRating ==4){
+                    bonus=15;
+                }
+                else if(PerformanceRating==3){
+                    bonus=10;
+        }
+        
+        }
+        else if(Department.equalsIgnoreCase("Non-Critical")){
+            if(PerformanceRating ==5){
+                bonus=18;
+            }
+            else if(PerformanceRating == 4){
+               bonus=12;
+            }
+            else if(PerformanceRating == 3){
+                bonus=8;
+            }
+            }
+        }
+        System.out.print("\nBonus Percentage: "+bonus+"%");
+        calculate_bonus=Salary*(bonus/100.0);
+        System.out.print("\nBonus Amount: $ "+calculate_bonus);
+        if(PerformanceRating>=3){
+            System.out.print("\nStatus: Eligible");
+        }
+        else {
+            System.out.print("\nStatus: Not Eligible");
+        }
+               
+    }
+}

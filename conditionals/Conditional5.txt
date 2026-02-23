@@ -1,0 +1,78 @@
+import java.util.Scanner;
+public class Conditional5{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        double gpa=sc.nextDouble();
+        double familyincome=sc.nextDouble();
+        int extracuri=sc.nextInt();
+        sc.nextLine();
+        String type=sc.nextLine();
+        System.out.print("\nGPA: "+gpa);
+        System.out.print("\nFamily Income:$"+familyincome);
+        System.out.print("\nExtracurricular Score: "+extracuri);
+        System.out.print("\nScholarship Type: "+type);
+        if(gpa>=2.5){
+            System.out.print("\nEligibility:Eligible");
+        }
+        else{
+            System.out.print("\nEligibility:Not Eligible");
+        }
+        double award=0.0;
+        String cate="None";
+        if(type.equalsIgnoreCase("Merit")){
+            if(gpa>=3.8 && extracuri>=80){
+                award=25000;
+                cate="Full";
+            }
+            else if(gpa>=3.5 && extracuri>=70){
+                award=15000;
+                cate="Partial";
+            }
+             else if(gpa>=3.0 && extracuri>=60){
+                award=8000;
+                cate="Minimal";
+             }
+        }
+        else if(type.equalsIgnoreCase("Need-Based")){
+            if(familyincome<=30000 && gpa>=3.5){
+                award=30000;
+                cate="Full";
+            }
+            else if(familyincome<=50000 && gpa>=3.0){
+                award=18000;
+                cate="Partial";
+            }
+            else if(familyincome<=70000 && gpa>=2.8){
+                award=10000;
+                cate="Minimal";
+            }
+        }
+        else if(type.equalsIgnoreCase("Sports")){
+            if(extracuri>=85 && gpa>=3.0){
+                award=22000;
+                cate="Full";
+            }
+            else if(extracuri>=75 && gpa>=2.8){
+                award=20000;
+                cate="Partial";
+            }
+            else if(extracuri>=85 && gpa>=2.5){
+                award=12000;
+                cate="Minimal";
+            }
+        }
+        System.out.print("\nAward Amount:$"+award);
+        System.out.print("\nAward Category: "+cate);
+    }
+}
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       

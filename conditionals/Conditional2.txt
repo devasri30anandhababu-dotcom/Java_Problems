@@ -1,0 +1,91 @@
+import java.util.Scanner;
+public class Conditional2 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int creditscore=sc.nextInt();
+        double annualincome=sc.nextDouble();
+        double debtincomeratio=sc.nextDouble();
+        sc.nextLine();
+        String loantype=sc.nextLine();
+        System.out.print("Credit Score: "+creditscore);
+        System.out.print("\nAnnual Income:$ "+annualincome);
+        System.out.print("\nDebt-Income Ratio: "+debtincomeratio+"%");
+        System.out.print("\nLoan Type: "+loantype);
+        String range="";
+        if(creditscore>=300 && creditscore<=850){
+            if(creditscore>=750){
+                range="Excellent";
+            }
+            else if(creditscore>=700 && creditscore<=749){
+                range="Good";
+            }
+            else if(creditscore>=650 && creditscore<=699){
+                range="Fair";
+            }
+            else if(creditscore<650){
+                range="Poor";
+            }
+        }
+        String tier="";
+        if(debtincomeratio>=0 && debtincomeratio<=100){
+            if(debtincomeratio<=30){
+               tier="Low"; 
+            }
+            else if(debtincomeratio>=31 && debtincomeratio<=40){
+                tier="Moderate";
+            }
+            else if(debtincomeratio>40){
+                tier="High";
+            }
+        }
+            double loan;
+            if(loantype.equalsIgnoreCase("Home")){
+                if(range.equals("Excellent") && tier.equals("Low")){
+                    System.out.print("\nDecision:Approved");
+                    loan=4.0*annualincome;
+                    System.out.print("\nMaximum Loan Amount: $ "+loan);
+                }
+                else if(range.equals("Good") && tier.equals("Moderate")){
+                    System.out.print("\nDecision:Needs Review");
+                    loan=3*annualincome;
+                    System.out.print("\nMaximum Loan Amount: $ "+loan);
+                }
+            }
+            else if(loantype.equalsIgnoreCase("Personal")){
+                if(range.equals("Excellent") && tier.equals("Low")){
+                    System.out.print("\nDecision:Approved");
+                    loan=1.0*annualincome;
+                    System.out.print("\nMaximum Loan Amount:$ "+loan);
+                }
+                else if(range.equals("Fair") && tier.equals("Moderate")){
+                    System.out.print("\nDecision:Needs Review");
+                    loan=0.5*annualincome;
+                    System.out.print("\nMaximum Loan Amount:$ "+loan);
+                }
+            }
+            else if(loantype.equalsIgnoreCase("Business")){
+                if((range.equals("Excellent") || range.equals("Good")&& tier.equals("Low")|| tier.equals("Moderate"))){
+                     System.out.print("\nDecision:Approved");
+                     loan=3.0*annualincome;
+                     System.out.print("\nMaximum Loan Amount:$ "+loan);
+                }
+            }
+            if(creditscore<600 || debtincomeratio>50){
+                System.out.print("\nDecision:Reject");
+                System.out.print("\nMaximum Loan Amount:$0.0");
+            }
+            sc.close();
+            
+        }
+}
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       

@@ -1,0 +1,93 @@
+import java.util.Scanner;
+public class Conditional8{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String location=sc.nextLine();
+        int square=sc.nextInt();
+        int age=sc.nextInt();
+        int amenityscore=sc.nextInt();
+        System.out.print("\nLocation Tier: "+location);
+        System.out.print("\nSquare Footage: "+square+" sq ft");
+        System.out.print("\nProperty Age: "+age+" years");
+        System.out.print("\nAmenity Score: "+amenityscore);
+        double tier=0.0;
+        if(location.equalsIgnoreCase("Prime")){
+            tier=400;
+        }
+        else if(location.equalsIgnoreCase("Urban")){
+            tier=300;
+        }
+        else if(location.equalsIgnoreCase("Suburban")){
+            tier=180;
+        }
+        else if(location.equalsIgnoreCase("Rural")){
+            tier=100;
+        }
+        int adj=0;
+        if(age>=0 && age<=5){
+            adj=0;
+        }
+        else if(age>=6 && age<=10){
+            adj=-5;
+        }
+        else if(age>=11 && age<=15){
+            adj=-10;
+        }
+        else if(age>=16 && age<=25){
+            adj=-15;
+        }
+        else if(age>=26 && age<=30){
+            adj=-20;
+        }
+        else if(age>=31 && age<=65){
+            adj=-25;
+        }
+        else if(age>=66 && age<=100){
+            adj=-35;
+        }
+        double basevalue=square*tier;
+        double score=0.0;
+        if(amenityscore>=80 && amenityscore<=100){
+            score=((basevalue)-(basevalue*10/100)*10/100);
+        }
+        else if(amenityscore>=60 && amenityscore<=79){
+            score=((basevalue)-(basevalue*10/100)*10/100);
+        }
+        else if(amenityscore>=40 && amenityscore<=59){
+            score=((basevalue)-(basevalue*10/100)*10/100); 
+        }
+        else{
+            score=0.0;
+        }
+        double propertyvalue;
+        propertyvalue=basevalue*(1-adj/100);
+        double finalv=(basevalue)-(basevalue*2/100)*2/100;
+        String cate=" ";
+        if((location.equalsIgnoreCase("Prime") || location.equalsIgnoreCase("Urban")) && age<15){
+            cate="Hot";
+        }
+        else if((location.equalsIgnoreCase("Rural")) || age>30){
+            cate="Slow";
+        }
+        else if(location.equalsIgnoreCase("Suburban")){
+            cate="Stable";
+        }
+        System.out.print("\nBase Price Per Sq Ft:$"+tier);
+        System.out.print("\nAge Adjustment: "+adj+"%");
+        System.out.print("\nAmenity Bonus:$"+score);
+        System.out.print("\nEstimated Property Value:$"+finalv);
+        System.out.print("\nMarket Category:"+cate);
+    }
+}
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       

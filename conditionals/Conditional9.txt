@@ -1,0 +1,78 @@
+import java.util.Scanner;
+public class Conditional9{
+    public static void main (String[]args){
+        Scanner sc=new Scanner(System.in);
+        double annualrevenue=sc.nextDouble();
+        sc.nextLine();
+        String businesstype=sc.nextLine();
+        double deductibleexpenses=sc.nextDouble();
+        double taxcredit=sc.nextDouble();
+        System.out.print("\nAnnual Revenue:$"+annualrevenue);
+        System.out.print("\nBusiness Type: "+businesstype);
+        System.out.print("\nDeductible Expenses:$"+deductibleexpenses);
+        System.out.print("\nTax Credits:$"+taxcredit);
+        double taxable=0.0;
+        taxable=annualrevenue-deductibleexpenses;
+        int rate=0;
+        if(businesstype.equalsIgnoreCase("C.Corp")){
+            if(taxable<500000){
+                rate=21;
+            }
+            else if(taxable>=500000 && taxable<=1000000){
+                rate=24;
+            }
+            else if(taxable>=1000000 && taxable<=2000000){
+                rate=28;
+            }
+            else if(taxable>2000000){
+                rate=30;
+            }
+        
+        }
+        else if(businesstype.equalsIgnoreCase("S-Corp")){
+            if(taxable<500000){
+                rate=20;
+            }
+            else if(taxable>=500000 && taxable<1000000){
+                rate=25;
+            }
+            else if(taxable>1000000){
+                rate=28;
+            }
+
+        }
+        else if(businesstype.equalsIgnoreCase("LLC")){
+            if(taxable<200000){
+                rate=15;
+            }
+            else if(taxable>200000 && taxable<500000){
+                rate=18;
+            }
+            else if(taxable>500000){
+                rate=22;
+            }
+        }
+        else if(businesstype.equalsIgnoreCase("Partnership")){
+            if(taxable<300000){
+                rate=18;
+            }
+            else if(taxable>300000 && taxable<800000){
+                rate=22;
+            }
+            else if(taxable>800000){
+                rate=26;
+            }
+        }
+        double gross=0.0;
+        gross=taxable*(rate/100.0);
+        double net=0.0;
+        net=gross-taxcredit;
+        double effec=0.0;
+        effec=(net/annualrevenue)*100.0;
+        System.out.print("\nTaxable Income:$"+taxable);
+        System.out.print("\nTax Rate: "+rate+"%");
+        System.out.print("\nGross Tax:$"+gross);
+        System.out.print("\nNet Tax After Credits:$"+net);
+        System.out.print("\nEffective Tax Rate: "+effec+"%");
+    }
+}

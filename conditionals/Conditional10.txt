@@ -1,0 +1,93 @@
+import java.util.Scanner;
+public class Conditional10{
+    public static void main (String[]args){
+        Scanner sc=new Scanner(System.in);
+        String timeofday=sc.nextLine();
+        double powerconsumption=sc.nextDouble();
+        double renewablepercentage=sc.nextDouble();
+        sc.nextLine();
+        String ratetier=sc.nextLine();
+        System.out.print("\nTime of Day: "+timeofday);
+        System.out.print("\nPower Consumption: "+powerconsumption+"kWh");
+        System.out.print("\nRenewable Energy: "+renewablepercentage+"%");
+        System.out.print("\nRate Tier: "+ratetier);
+        double rate=0.0;
+        if(ratetier.equalsIgnoreCase("Basic")){
+            rate=0.18;
+        }
+        else if(ratetier.equalsIgnoreCase("Time-of-Use")){
+            rate=0.15;
+        }
+        else if(ratetier.equalsIgnoreCase("Premium-Green")){
+            rate=0.12;
+           
+        }
+        System.out.print("\nBase Rate: $"+rate+"/kWh");
+        String recommendation="";
+        double multi=0.0;
+        if(timeofday.equalsIgnoreCase("Peak")){
+            if(ratetier.equalsIgnoreCase("Time-of-Use")){
+                multi=1.8;
+                recommendation="Shift hight-power appliances to Off-Peak hours";
+            }
+            else{
+                multi=1.5;
+                recommendation="Great renewable usage! Minor peak reductin possible";
+            }
+        }
+        else if(timeofday.equalsIgnoreCase("Off-Peak")){
+            if(ratetier.equalsIgnoreCase("Basic")){
+                multi=1.0;
+                recommendation="Consider upgrading to Time-of-Use plan";
+            }
+            else{
+                multi=0.8;
+               
+                recommendation="Good timing! Consider increasing renewable capacity";
+            }
+        }
+        else if(timeofday.equalsIgnoreCase("Super-Off-Peak")){
+            if(ratetier.equalsIgnoreCase("Premium-Green")){
+                multi=0.6;
+                
+                recommendation="Excellent! Maximize appliance use during this period";
+            }
+            else{
+                multi=0.5;
+            }
+        }
+        System.out.print("\nRate Multiplier: "+multi+"x");
+        double renew=0.0;
+        renew=(powerconsumption*rate*renewablepercentage/100);
+        renew=Math.round(renew*100)/100.0;
+        System.out.print("\nRenewable Credit:$"+renew);
+        double total=0.0;
+        total=((powerconsumption*rate*multi)-renew);
+        total=Math.round(total*100)/100.0;
+        System.out.printf("\nTotal Cost:$"+total);
+        double potential=0.0;
+        if(timeofday.equalsIgnoreCase("Off-Peak")){
+            double betterTotal=(powerconsumption*rate*0.8)-renew;
+            betterTotal=Math.round(betterTotal*100)/100.0;
+            potential=total-betterTotal;
+            
+        }
+        else if(timeofday.equalsIgnoreCase("Peak")){
+            double betterTotal=(powerconsumption*rate*1.2)-renew;
+            betterTotal=Math.round(betterTotal*100)/100.0;
+            potential=total-betterTotal;
+            
+        }
+        else{
+            potential=0;
+        }
+        potential=Math.round(potential*100)/100.0;
+        System.out.print("\nOptimization Recommendation: "+recommendation);
+        System.out.print("\nPotential Saving:$"+potential);
+        sc.close();
+        
+        
+        }
+        
+}
+

@@ -1,0 +1,89 @@
+import java.util.Scanner;
+public class Conditional10{
+    public static void main (String[]args){
+        Scanner sc=new Scanner(System.in);
+        String ordertype=sc.nextLine();
+        String loyaltystatus=sc.nextLine();
+        double ordervalue=sc.nextDouble();
+        sc.nextLine();
+        String timeslot=sc.nextLine();
+        System.out.print("\nOrder Type: "+ordertype);
+        System.out.print("\nLoyalty Status: "+loyaltystatus);
+        System.out.print("\nOrder value:$"+ordervalue);
+        System.out.print("\nTime Slot: "+timeslot);
+        int totaldiscount=0;
+        if(loyaltystatus.equalsIgnoreCase("Gold")){
+            totaldiscount=15;
+        }
+        else if(loyaltystatus.equalsIgnoreCase("Silver")){
+            totaldiscount=10;
+        }
+        else if(loyaltystatus.equalsIgnoreCase("Bronze")){
+            totaldiscount=5;
+        }
+        else{
+            totaldiscount=0;
+        }
+        int adjustment=0;
+        if(timeslot.equalsIgnoreCase("Late-Night")){
+            adjustment=-5;
+        }
+        double fee=0.0;
+        if(ordertype.equalsIgnoreCase("Delivery")){
+            fee=Math.round(10.0/100*ordervalue*10.0)/10.0;
+        }
+        else if(ordertype.equalsIgnoreCase("Takeout")){
+            fee=Math.round(3.0/100*ordervalue*10.0)/10.0;
+        }
+        else{
+            fee=0;
+        }
+        double finalamount=0.0;
+        double discountedvalue=ordervalue*(1-totaldiscount/100.0);
+        finalamount=discountedvalue+fee;
+        String kitchen="";
+        if(timeslot.equalsIgnoreCase("Peak") && ordertype.equalsIgnoreCase("Delivery")){
+            kitchen="High";
+        }
+        else if(timeslot.equalsIgnoreCase("Regular")){
+            kitchen="Medium";
+        }
+        else if(timeslot.equalsIgnoreCase("Late-Night")){
+            kitchen="Low";
+        }
+        int preptime=0;
+        if(kitchen.equalsIgnoreCase("High")){
+            if(ordertype.equalsIgnoreCase("Delivery")){
+                if(loyaltystatus.equalsIgnoreCase("Gold")){
+                preptime=25;
+            }
+            else{
+                preptime=30;
+            }
+        }
+        }
+        else if(kitchen.equalsIgnoreCase("Medium")){
+            if(ordertype.equalsIgnoreCase("Dine-In")){
+                if(loyaltystatus.equalsIgnoreCase("Gold")){
+                preptime=25;
+            }
+            else{
+                preptime=20;
+            }
+            }
+        }
+        else if(kitchen.equalsIgnoreCase("Low")){
+            preptime=15;
+        }
+        System.out.print("\nBase Discount: "+totaldiscount+"%");
+        System.out.print("\nTime-Based Adjustment: "+adjustment+"%");
+        System.out.print("\nService Fee:$"+fee);
+        System.out.print("\nFinal Amount:$"+finalamount);
+        System.out.print("\nKitchen Priority: "+kitchen);
+        System.out.print("\nEstimated Prep Time: "+preptime+" minutes");
+        
+}
+}
+
+
+

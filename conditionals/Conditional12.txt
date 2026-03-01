@@ -1,0 +1,94 @@
+import java.util.Scanner;
+public class Conditional12{
+    public static void main (String[]args){
+        Scanner sc=new Scanner(System.in);
+        int age=sc.nextInt();
+        sc.nextLine();
+        String vehicletype=sc.nextLine();
+        String drivingrecord=sc.nextLine();
+        String coveragelevel=sc.nextLine();
+        System.out.print("\nDriver Age: "+age);
+        System.out.print("\nVehicle Type: "+vehicletype);
+        System.out.print("\nDriving Record: "+drivingrecord);
+        System.out.print("\nCoverage Level: "+coveragelevel);
+        double premium=0.0;
+        if(coveragelevel.equalsIgnoreCase("Basic")){
+            premium=500;
+        }
+        else if(coveragelevel.equalsIgnoreCase("Standard")){
+            premium=800;
+        }
+        else if(coveragelevel.equalsIgnoreCase("Comprehensive")){
+            premium=1500;
+        }
+        double factor=0.0;
+        if(age>=16 && age<=21){
+            factor=1.8;
+        }
+        else if(age>=22 && age<=25){
+            factor=1.5;
+        }
+        else if(age>=26 && age<=40){
+            factor=1.0;
+        }
+        else if(age>=41 && age<=60){
+            factor=0.9;
+        }
+        else{
+            factor=1.1;
+        }
+        double risk=0.0;
+        if(vehicletype.equalsIgnoreCase("Sedan")){
+            risk=1.0;
+        }
+        else if(vehicletype.equalsIgnoreCase("SUV")){
+            risk=1.2;
+        }
+        else if(vehicletype.equalsIgnoreCase("Sports")){
+            risk=1.5;
+        }
+        else if(vehicletype.equalsIgnoreCase("Truck")){
+            risk=1.1;
+        }
+        int adjust=0;
+        if(drivingrecord.equalsIgnoreCase("Clean")){
+            adjust=-10;
+        }
+        else if(drivingrecord.equalsIgnoreCase("Minor-Violations")){
+            adjust=25;
+        }
+        else if(drivingrecord.equalsIgnoreCase("Major-violations")){
+            adjust=50;
+        }
+        double adjustedpremium=premium*factor*risk;
+        double annualpremium=adjustedpremium*(1+adjust/100.00);
+        annualpremium=Math.round(annualpremium*100.0)/100.0;
+        double monthlypremium=annualpremium/12;
+        monthlypremium=Math.round(monthlypremium*100.0)/100.0;
+        String cate="";
+        if(drivingrecord.equalsIgnoreCase("Major-Violations")){
+            cate="High";
+        }
+        else if(drivingrecord.equalsIgnoreCase("Minor-Violations") && age<=25){
+                cate="Very High";
+        }
+        else if(drivingrecord.equalsIgnoreCase("Minor-Violations")){
+                cate="Medium";
+        }
+        else if(drivingrecord.equalsIgnoreCase("Clean")){
+            cate="Low";
+        }
+        System.out.print("\nBase Premium:$"+premium);
+        System.out.print("\nAge Factor: "+factor+"x");
+        System.out.print("\nVehical Risk Factor:"+risk+"x");
+        System.out.print("\nRecord Adjustment:"+adjust+"%");
+        System.out.print("\nmonthly Premium:$"+monthlypremium);
+        System.out.print("\nAnnual Premium:$"+annualpremium);
+        System.out.print("\nRisk Category: "+cate);
+}
+}
+
+
+
+
+

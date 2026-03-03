@@ -1,0 +1,77 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int unitsconsumed=sc.nextInt();
+        sc.nextLine();
+        String customertype=sc.nextLine();
+        String season=sc.nextLine();
+        String paymentmethod=sc.nextLine();
+        System.out.print("\nUnits Consumed:"+unitsconsumed+"kWh");
+        System.out.print("\nCustomer Type:"+customertype);
+        System.out.print("\nSeason:"+season);
+        System.out.print("\nPayment Method:"+paymentmethod);
+        double tier1=0.0;
+        double tier2=0.0;
+        double tier3=0.0;
+        double tier4=0.0;
+        double bill=0.0;
+        if(customertype.equalsIgnoreCase("Residential")){
+            tier1=10.0;
+            tier2=22.5;
+            tier3=0.0;
+            tier4=0.0;
+            bill=tier1+tier2+tier3+tier4;
+        }
+        else if(customertype.equalsIgnoreCase("Commercial")){
+            tier1=12.0;
+            tier2=36.0;
+            tier3=50.0;
+            tier4=25.0;
+            bill=tier1/+tier2+tier3+tier4;
+        }
+        else if(customertype.equalsIgnoreCase("Industrial")){
+            tier1=8.0;
+            tier2=24.0;
+            tier3=40.0;
+            tier4=200.0;
+            bill=tier1+tier2+tier3+tier4;
+        }
+        int adjustment=0;
+        if(season.equalsIgnoreCase("Summer")){
+            adjustment=15;
+        }
+        else if(season.equalsIgnoreCase("Winter")){
+            adjustment=-10;
+        }
+        else if(season.equalsIgnoreCase("Regular")){
+            adjustment=0;
+        }
+        int discount=0;
+        if(paymentmethod.equalsIgnoreCase("Auto-Pay")){
+            discount=5;
+        }
+        else if(paymentmethod.equalsIgnoreCase("Online")){
+            discount=3;
+        }
+        else if(paymentmethod.equalsIgnoreCase("Manual")){
+            discount=0;
+        }
+      
+        double avg=0.0;
+        
+        avg=Math.round(bill/unitsconsumed);
+        System.out.print("\nTier 1 cost:"+tier1);
+        System.out.print("\nTier 2 cost:"+tier2);
+        System.out.print("\nTier 3 cost:"+tier3);
+        System.out.print("\nTier 4 cost:"+tier4);
+        System.out.print("\nSeasonal Adjustment:"+adjustment+"%");
+        System.out.print("\nPayment Discount:"+discount+"%");
+        System.out.print("\nTotal Bill:"+bill);
+        System.out.print("\nAverage Rate:"+avg);
+    
+        sc.close();
+        
+    
+    }
+}

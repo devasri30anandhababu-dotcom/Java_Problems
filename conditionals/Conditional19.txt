@@ -1,0 +1,104 @@
+import java.util.Scanner;
+public class condition19{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        String movieformat=sc.nextLine();
+        String showtime=sc.nextLine();
+        String seatcate=sc.nextLine();
+        String customertype=sc.nextLine();
+        System.out.print("\nMoive Format:"+movieformat);
+        System.out.print("\nShow Time:"+showtime);
+        System.out.print("\nSeat Category:"+seatcate);
+        System.out.print("\nCustomer Type:"+customertype);
+        double baseprice=12.0;
+        double surcharge=0.0;
+        if(movieformat.equalsIgnoreCase("2D")){
+            surcharge=0;
+        }
+        else if(movieformat.equalsIgnoreCase("3D")){
+            surcharge=5;
+        }
+        else if(movieformat.equalsIgnoreCase("3D")){
+            surcharge=5;
+        }
+        else if(movieformat.equalsIgnoreCase("IMAX")){
+            surcharge=8;
+        }
+        else if(movieformat.equalsIgnoreCase("4DX")){
+            surcharge=10;
+        }
+        double seatfee=0.0;
+        if(seatcate.equalsIgnoreCase("Standard")){
+            seatfee=0;
+        }
+        else if(seatcate.equalsIgnoreCase("Premium")){
+            seatfee=4;
+        }
+        else if(seatcate.equalsIgnoreCase("Recliner")){
+            seatfee=7;
+        }
+        int timebase=0;
+        if(showtime.equalsIgnoreCase("Matinee")){
+            timebase=-30;
+        }
+        else if(showtime.equalsIgnoreCase("Evening")){
+            timebase=0;
+        }
+        else if(showtime.equalsIgnoreCase("Prime-Time")){
+            timebase=20;
+        }
+        else if(showtime.equalsIgnoreCase("Late-Night")){
+            timebase=-20;
+        }
+        int discount=0;
+        if(customertype.equalsIgnoreCase("Adult")){
+            discount=0;
+        }
+        else if(customertype.equalsIgnoreCase("Senior")){
+            discount=25;
+        }
+        else if(customertype.equalsIgnoreCase("Student")){
+            discount=15;
+        }
+        else if(customertype.equalsIgnoreCase("Child")){
+            discount=30;
+        }
+        double basewithsur=baseprice+surcharge+seatfee;
+        double adjustprice=basewithsur*(1+timebase/100.0);
+        double finalprice=Math.round(adjustprice*(1-discount/100.0)*100.0)/100.0;
+        String concession="";
+        if(showtime.equalsIgnoreCase("Matinee")){
+            concession="Yes";
+        }
+        else if(customertype.equalsIgnoreCase("Senior")){
+            concession="Yes";
+        }else if(customertype.equalsIgnoreCase("Student")){
+            concession="Yes";
+        }
+        else if(customertype.equalsIgnoreCase("Child")){
+            concession="Yes";
+        }
+        else{
+            concession="No";
+        }
+        String cate="";
+        if(finalprice<=10){
+            cate="Value";
+        }
+        else if(finalprice>=20 && finalprice<30){
+            cate="Premium";
+        }
+        else if(finalprice>=30){
+            cate="Luxury";
+        }
+        System.out.print("\nBase Ticket Price:$"+baseprice);
+        System.out.print("\nFormat Surcharge:$"+surcharge);
+        System.out.print("\nSeat Upgrade Fee:$"+seatfee);
+        System.out.print("\nTime-Based Adjustment:"+timebase+"%");
+        System.out.print("\nCustomer Discount:"+discount+"%");
+        System.out.print("\nFinal Ticket Price:$"+finalprice);
+        System.out.print("\nConcession Voucher:"+concession);
+        System.out.print("\nPricing Category:"+cate);
+        sc.close();
+    }
+}

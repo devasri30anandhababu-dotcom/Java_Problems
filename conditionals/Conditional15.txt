@@ -1,0 +1,89 @@
+import java.util.Scanner;
+public class Conditional15 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int usercount=sc.nextInt();
+        sc.nextLine();
+        String licensetype=sc.nextLine();
+        String supportlevel=sc.nextLine();
+        int contractyear=sc.nextInt();
+        System.out.print("\nUser Count:"+usercount);
+        System.out.print("\nLicense Type:"+licensetype);
+        System.out.print("\nSupport Level:"+supportlevel);
+        System.out.print("\nContract Duration:"+contractyear+" Years");
+        double baseprice=0.0;
+        if(licensetype.equalsIgnoreCase("Standard")){
+            baseprice=60;
+        }
+        else if(licensetype.equalsIgnoreCase("Professional")){
+            baseprice=120;
+        } 
+        else if(licensetype.equalsIgnoreCase("Enterprise")){
+            baseprice=200;
+        }
+        int volumediscount=0;
+        if(usercount>=1 && usercount<=50){
+            volumediscount=0;
+        }
+        else if(usercount>=51 && usercount<=200){
+            volumediscount=15;
+        }
+        else if(usercount>=201 && usercount<=500){
+            volumediscount=20;
+        }
+        else if(usercount>=501 && usercount<1000){
+            volumediscount=25;
+        }
+        else if(usercount>=1001){
+            volumediscount=35;
+        }
+        double supportfee=0.0;
+        if(supportlevel.equalsIgnoreCase("Basic")){
+            supportfee=10;
+        }
+        else if(supportlevel.equalsIgnoreCase("Priority")){
+            supportfee=30;
+        }
+        else if(supportlevel.equalsIgnoreCase("Premium")){
+            supportfee=80;
+        }
+        int multi=0;
+        if(contractyear==1){
+            multi=0;
+        }
+        else if(contractyear==2){
+            multi=5;
+        }
+        else if(contractyear==3){
+            multi=10;
+        }
+        else if(contractyear==5){
+            multi=20;
+        }
+        double discountedbase=(baseprice)*(1-volumediscount/100.0);
+        double annualper=(discountedbase+supportfee)*(1-multi/100.0);
+        double totalannual=(annualper*usercount);
+        double contractotal=(totalannual*contractyear);
+        
+        String cate=" ";
+        if(usercount<200){
+            cate="Small Business";
+        }
+        else if(usercount>=200 && usercount<=1000){
+            cate="Mid-Market";
+        }
+        else{
+            cate="Enterprise";
+        }
+        System.out.print("\nBase Price Per User:$"+baseprice);
+        System.out.print("\nVolume Discount:"+volumediscount+"%");
+        System.out.print("\nSupport Fee Per User:$"+supportfee);
+        System.out.print("\nMulti-Year Discount:"+multi+"%");
+        System.out.print("\nAnnual Cost Per User:$"+annualper);
+        System.out.print("\nTotal Annual Cost:$"+totalannual);
+        System.out.print("\nTotal Contract Value:$"+contractotal);
+        System.out.print("\nPricing Tier:"+cate);
+    
+    }
+    
+}

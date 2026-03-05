@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class loop1 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        sc.nextLine();
+        double payroll=0.0;
+
+        for(int i=0;i<n;i++){
+            String employeename=sc.nextLine();
+            double basesalary=sc.nextDouble();
+            int performancerating=sc.nextInt();
+            sc.nextLine();
+            int increment=0;
+            if(performancerating==5){
+                increment=15;
+            }
+            else if (performancerating==4) {
+                increment=10;
+            }
+            else if (performancerating==3) {
+                increment=5;
+            }
+            else if (performancerating==2) {
+                increment=2;
+            }
+            else if (performancerating==1) {
+                increment=0;
+            }
+            double finalsalary=0.0;
+            finalsalary=basesalary*(1+increment/100.0);
+           
+            payroll+=finalsalary;
+            
+            System.out.println("Employee:"+employeename);
+            System.out.println("Base Salary:$"+basesalary);
+            System.out.println("Performance Rating:"+performancerating);
+            System.out.println("Increment:"+increment+"%");
+            System.out.println(String.format("Final Salary:$%.2f",finalsalary));            
+        }
+        int totalproceed=n;
+        double avg=payroll/n;
+            System.out.println("\nTotal Employees Processed:"+totalproceed);
+            System.out.println(String.format("Total Payroll:$%.2f",payroll));
+            System.out.println(String.format("Average Salary:$%.2f",avg)); 
+            sc.close();
+    }
+}

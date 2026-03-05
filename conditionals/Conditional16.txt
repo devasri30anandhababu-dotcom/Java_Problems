@@ -1,0 +1,94 @@
+import java.util.Scanner;
+public class Conditional15 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String roomcategory=sc.nextLine();
+        String season=sc.nextLine();
+        int nightbooked=sc.nextInt();
+        sc.nextLine();
+        String loyaltytier=sc.nextLine();
+        System.out.print("\nRoom Category:"+roomcategory);
+        System.out.print("\nSeason:"+season);
+        System.out.print("\nNights Booked:"+nightbooked);
+        System.out.print("\nLoyalty Tier:"+loyaltytier);
+        double roomrate=0.0;
+        if(roomcategory.equalsIgnoreCase("Standard")){
+            roomrate=150;
+        }
+        else if(roomcategory.equalsIgnoreCase("Deluxe")){
+            roomrate=300;
+        }
+        else if(roomcategory.equalsIgnoreCase("Suite")){
+            roomrate=500;
+        }
+        else if(roomcategory.equalsIgnoreCase("Presidential")){
+            roomrate=1000;
+        }
+        double multi=0.0;
+        if(season.equalsIgnoreCase("Off-Peak")){
+            multi=0.7;
+        }
+        else if(season.equalsIgnoreCase("Regular")){
+            multi=1.0;
+        }
+        else if(season.equalsIgnoreCase("Peak")){
+            multi=1.5;
+        }
+        else if(season.equalsIgnoreCase("Holiday")){
+            multi=2.0;
+        }
+        int staydiscount=0;
+        if(nightbooked>=1 && nightbooked<=4){
+            staydiscount=0;
+        }
+        else if(nightbooked>=5 && nightbooked<=7){
+            staydiscount=5;
+        }
+        else if(nightbooked>=8 && nightbooked<=14){
+            staydiscount=10;
+        }
+        else if(nightbooked>=15){
+            staydiscount=20;
+        }
+        int loyaltydiscount=0;
+        if(loyaltytier.equalsIgnoreCase("None")){
+            loyaltydiscount=0;
+        }
+        else if(loyaltytier.equalsIgnoreCase("Member")){
+            loyaltydiscount=10;
+        }
+        else if(loyaltytier.equalsIgnoreCase("Gold")){
+            loyaltydiscount=15;
+        }
+        else if(loyaltytier.equalsIgnoreCase("Platinum")){
+            loyaltydiscount=20;
+        }
+        double seasonalrate=roomrate*multi;
+        double nightlyrate=seasonalrate*(1-staydiscount/100.00)*(1-loyaltydiscount/100.00);
+        double totalbooking=nightlyrate*nightbooked;
+        String compliment=" ";
+        if(loyaltytier.equalsIgnoreCase("None")){
+            compliment="None";
+        }
+        else if(loyaltytier.equalsIgnoreCase("Member")){
+            compliment="Free breakfast";
+        }
+        else if(loyaltytier.equalsIgnoreCase("Gold")){
+            compliment="Free breakfast and spa access";
+        }
+        else if(loyaltytier.equalsIgnoreCase("Platinum")){
+            compliment="Concierge service, airport transfer, and fine dining";
+        }
+        System.out.print("\nBase Rate Per Night:$"+roomrate);
+        System.out.print("\nSeasonal Multiplier:"+multi+"x");
+        System.out.print("\nExtended Stay Discount:"+staydiscount+"%");
+        System.out.print("\nLoyalty Discount:"+loyaltydiscount+"%");
+        System.out.print("\nNightly Rate:$"+nightlyrate);
+        System.out.print("\nTotal Booking Cost:$"+totalbooking);
+        System.out.print("\nComplinentary Upgrades:"+compliment);
+        
+        sc.close();
+        
+    }
+    
+}

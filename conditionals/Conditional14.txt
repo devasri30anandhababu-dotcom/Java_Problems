@@ -1,0 +1,92 @@
+import java.util.Scanner;
+public class Conditional14 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String membershiptier=sc.nextLine();
+        int contractmonths=sc.nextInt();
+        sc.nextLine();
+        String accesslevel=sc.nextLine();
+        String addons=sc.nextLine();
+        System.out.print("\nMembership Tier:"+membershiptier);
+        System.out.print("\nContract Length:"+contractmonths+" months");
+        System.out.print("\nAccess Level:"+accesslevel);
+        System.out.print("\nAdd-Ons:"+addons);
+        double monthlyfee=0.0;
+        if(membershiptier.equalsIgnoreCase("Basic")){
+            monthlyfee=40;
+        }
+        else if(membershiptier.equalsIgnoreCase("Premium")){
+            monthlyfee=80;
+        }
+        else if(membershiptier.equalsIgnoreCase("Elite")){
+            monthlyfee=120;
+        }
+        else if(membershiptier.equalsIgnoreCase("VIP")){
+            monthlyfee=150;
+        }
+        int discount=0;
+        if(contractmonths==1){
+            discount=0;
+        }
+        else if(contractmonths==6){
+            discount=10;
+        }
+        else if(contractmonths==12){
+            discount=15;
+        }
+        else if (contractmonths==24) {
+            discount=25;
+            
+        }
+        double accessfee=0.0;
+        if(accesslevel.equalsIgnoreCase("Location")){
+            accessfee=0;
+        }
+        else if(accesslevel.equalsIgnoreCase("Regional")){
+            accessfee=20;
+        }
+        else if(accesslevel.equalsIgnoreCase("Nationwide")){
+            accessfee=50;
+        }
+        double addonsfee=0.0;
+        if(addons.equalsIgnoreCase("None")){
+            addonsfee=0;
+        }
+        else if(addons.equalsIgnoreCase("Personal-Traianing")){
+            addonsfee=100;
+        }
+        else if(addons.equalsIgnoreCase("Classes")){
+            addonsfee=50;
+        }
+        else if(addons.equalsIgnoreCase("Full-Package")){
+            addonsfee=200;
+        }
+        double discounted=monthlyfee*(1-discount/100);
+        double monthlytotal=discounted+accessfee+addonsfee;
+        double contracttotal=monthlytotal*contractmonths;
+        double savings=(monthlyfee+accessfee+addonsfee)*contractmonths-contracttotal;
+        String cate=" ";
+        if(monthlytotal<100){
+            cate="Budget";
+        }
+        else if(monthlytotal>100 && monthlytotal<150){
+            cate="Standard";
+        }
+        else if(monthlytotal>150 && monthlytotal>200){
+            cate="Premium";
+        }
+        else if(monthlytotal>=200){ 
+            cate="Luxury";
+        }
+        System.out.print("\nBase Monthly Fee:$"+monthlyfee);
+        System.out.print("\nContract Discount:"+discount+"%");
+        System.out.print("\nAccess Fee:$"+accessfee);
+        System.out.print("\nAdd-On-Fee:$"+addonsfee);
+        System.out.print("\nMonthly Total:$"+monthlytotal);
+        System.out.print("\nBase Contract Total:$"+contracttotal);
+        System.out.print("\nSavings vs Month-to-Month:$"+savings);
+        System.out.print("\nMembership Category:"+cate);
+        sc.close();
+    }
+    
+}

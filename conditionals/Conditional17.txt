@@ -1,0 +1,82 @@
+import java.util.Scanner;
+public class Conditional15 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String cardtier=sc.nextLine();
+        String purchasecategory=sc.nextLine();
+        double transactionamount=sc.nextDouble();
+        sc.nextLine();
+        String promotionalstatus=sc.nextLine();
+        System.out.print("\nCard Tier:"+cardtier);
+        System.out.print("\nPurchase Category:"+purchasecategory);
+        System.out.print("\nTransaction Amount:$"+transactionamount);
+        System.out.print("\nPromotional Status:"+promotionalstatus);
+        double baserate=1.0;
+        System.out.print("\nBase Points Rate: "+baserate+" points per dollar");
+        double bonus=0.0;
+        if(purchasecategory.equalsIgnoreCase("Groceries")){
+            bonus=2.0;
+        }
+        else if(purchasecategory.equalsIgnoreCase("Dining")){
+            bonus=2.5;
+        }
+        else if(purchasecategory.equalsIgnoreCase("Travel")){
+            bonus=3.0;
+        }
+        else if(purchasecategory.equalsIgnoreCase("Gas")){
+            bonus=2.0;
+        }
+        else{
+            bonus=1.0;
+        }
+        double multi=0.0;
+        if(cardtier.equalsIgnoreCase("Basic")){
+            multi=1.0;
+        }
+        else if(cardtier.equalsIgnoreCase("Gold")){
+            multi=1.25;
+        }
+        else if(cardtier.equalsIgnoreCase("Platinum")){
+            multi=1.5;
+        }
+        else if(cardtier.equalsIgnoreCase("Black")){
+            multi=2.0;
+        }
+        double promomulti=0.0;
+        if(promotionalstatus.equalsIgnoreCase("None")){
+            promomulti=1.0;
+        }
+        else if(promotionalstatus.equalsIgnoreCase("Double-Points")){
+            promomulti=2.0;
+        }
+        else if(promotionalstatus.equalsIgnoreCase("Triple-Points")){
+            promomulti=3.0;
+        }
+        double pointsearn=transactionamount*baserate*bonus*multi*promomulti;
+        double cashvalue=Math.round((pointsearn*0.01)*100.0)/100.0;
+        String reward=" ";
+        if(cardtier.equalsIgnoreCase("Basic")){
+            reward="Standard";
+        }
+        else if(cardtier.equalsIgnoreCase("Gold")){
+            reward="Enhanced";
+        }
+        else if(cardtier.equalsIgnoreCase("Platinum")){
+            reward="Premium";
+        }
+        else if(cardtier.equalsIgnoreCase("Black")){
+            reward="Elite";
+        }
+        System.out.print("\nCategory Bonus:"+bonus+"x");
+        System.out.print("\nTier Multiplier:"+multi+"x");
+        System.out.print("\nPromotional Multiplier:"+promomulti+"x");
+        System.out.print("\nPoints Earned: "+pointsearn);
+        System.out.print("\nEquivalent Case Value:$"+cashvalue);
+        System.out.print("\nRewards Tier:"+reward);
+        
+        
+        sc.close();
+        
+    }
+    
+}

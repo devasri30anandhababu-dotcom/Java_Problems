@@ -1,0 +1,51 @@
+import java.util.*;
+public class looping15 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        sc.nextLine();
+        double totdis=0.0;
+        double totrev=0.0;
+
+        for(int i=1;i<=n;i++){
+            double distance=sc.nextDouble();
+            sc.nextLine();
+            String timeofday=sc.nextLine();
+            double basefare=3.00;
+            double distancecharge=0.0;
+            distancecharge=1.00*distance;
+            double surcharges=0.0;
+            if(timeofday.equalsIgnoreCase("Morning")){
+                surcharges=0;
+            }
+            else if(timeofday.equalsIgnoreCase("Afternoon")){
+                surcharges=0;
+            }
+            else if(timeofday.equalsIgnoreCase("Evening")){
+                surcharges=3;
+            }
+            else if(timeofday.equalsIgnoreCase("Night")){
+                surcharges=5;
+            }
+            double totalfare=basefare+distancecharge+surcharges;
+            totdis=totdis+distance;
+            totrev=totrev+totalfare;
+            System.out.println("Ride "+ i);
+            System.out.println("Distance:"+distance+"km");
+            System.out.println("Time:"+timeofday);
+            System.out.println("Base Fare:$"+basefare);
+            System.out.println("Distance Charge:$"+distancecharge);
+            System.out.println("Time Surcharge:$"+surcharges);
+            System.out.println("Total Fare:$"+totalfare);
+
+        }
+        double avg=totrev/n;
+        System.out.println("\nTotal Rides:"+n);
+        System.out.println("Total Distance:"+totdis+"km");
+        System.out.println("Total Revenue:$"+totrev);
+        System.out.println("Average Fare:$"+avg);
+    }
+    
+}
+
+

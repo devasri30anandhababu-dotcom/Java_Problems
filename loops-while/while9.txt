@@ -1,0 +1,24 @@
+import java.util.*;
+public class while6 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int number=sc.nextInt();
+        int prime=0;
+        int num=1;
+        while(num<=number){
+            if(number%num==0){
+                prime++;
+            }
+            num++;
+        }   
+        if(prime==2){
+        System.out.println(number +" is  prime");
+            
+        }
+        else {
+        System.out.println(number +" is not a prime");
+    }
+    
+        
+    }  
+    }

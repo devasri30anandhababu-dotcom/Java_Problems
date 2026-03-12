@@ -1,0 +1,18 @@
+import java.util.*;
+public class while8 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int number=sc.nextInt();
+        System.out.println("Number:"+number);
+        int sum=0;
+        int rem=0;
+        while(number>0){
+            rem=number%10;
+            sum=sum+rem;
+            number=number/10;
+        }
+        System.out.println("Sum of digits:"+sum);
+        
+        
+    }
+}

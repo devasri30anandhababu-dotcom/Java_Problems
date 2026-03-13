@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int original=a;
+        int rem=0;
+        int rev=0;
+        while(a!=0){
+            rem=a%10;
+            rev=(rev*10)+rem;
+            a=a/10;
+        }
+        if(original==rev){
+            System.out.println(original+" is a panindrome");
+        }
+        else{
+            System.out.println(original+" is not a panindrome");
+        }
+        
+        
+    }
+}

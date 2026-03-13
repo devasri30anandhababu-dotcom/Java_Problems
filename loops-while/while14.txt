@@ -1,0 +1,24 @@
+import java.util.*;
+public class while13 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int num=n;
+        int rem=0;
+        int sum=0;
+        int pow=1;
+        while(n!=0){
+        rem=n%10;
+        pow=rem*rem*rem;
+        sum=sum+pow;
+        n=n/10;
+        
+    }
+    if(num==sum){
+        System.out.println(num+" is an Armstrong number");
+    }
+    else{
+        System.out.println(num+" is not an Armstrong number");
+    }
+}
+}

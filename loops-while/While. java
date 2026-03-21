@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class AbbreviationProgram {
+    public static void main(String[] args) {
+
+        String[] shortForm = {"INRI", "INBI", "IC XC", "IHS", "Chi-Rho"};
+        String[] meaning = {
+            "Jesus of Nazareth, King of the Jews",
+            "Greek form of INRI",
+            "Jesus Christ",
+            "Jesus, Savior of mankind",
+            "Symbol of Christ"
+        };
+
+        int i = 0;
+
+        do {
+            System.out.println(shortForm[i] + " : " + meaning[i]);
+            i++;
+        } while (i < shortForm.length);
+    }
+}

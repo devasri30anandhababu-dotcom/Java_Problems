@@ -1,0 +1,15 @@
+import java.util.*;
+public class WhileExample3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int start = sc.nextInt();
+        int end = sc.nextInt();
+
+        while (start <= end) {
+            if (start % 2 == 0) {
+                System.out.print(start + " ");
+            }
+            start++;
+        }
+    }
+}

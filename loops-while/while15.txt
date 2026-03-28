@@ -1,0 +1,28 @@
+import java.util.*;
+public class Collatz {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int steps = 0;
+
+        System.out.println("Collatz sequence starting from " + n + ":");
+
+        if (n == 1) {
+            System.out.println("1");
+            System.out.println("Steps: 0");
+            return;
+        }
+
+        do {
+            System.out.print(n + " ");
+            if (n % 2 == 0)
+                n = n / 2;
+            else
+                n = 3 * n + 1;
+            steps++;
+        } while (n != 1);
+
+        System.out.print("1");
+        System.out.println("\nSteps: " + steps);
+    }
+}

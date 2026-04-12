@@ -1,0 +1,25 @@
+import java.util.*;
+public class nested13{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        sc.nextLine();
+        String c="star";
+        String n="number";
+        String al=sc.nextLine();
+        System.out.println("Right Triangle Pattern:");
+        for(int i=1;i<=num;i++){
+            for(int j=1;j<=i;j++){
+                if(al.equals(c)){
+                    System.out.print("*");
+                }
+                else{
+                    System.out.print(j);
+                }
+                
+            }
+            System.out.println("");
+        }
+        
+    }
+}

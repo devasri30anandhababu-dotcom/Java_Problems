@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class nested13 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int std = sc.nextInt();   // number of students
+        int sub = sc.nextInt();   // number of subjects
+        sc.nextLine();
+
+        System.out.println("Grade Sheet:");
+        System.out.println("Name Total Average Result");
+
+        for (int i = 1; i <= std; i++) {
+            String name = sc.nextLine();  
+            int total = 0;
+
+            for (int j = 1; j <= sub; j++) {
+                int m = sc.nextInt();
+                total += m;
+            }
+            sc.nextLine(); // clear buffer
+
+            int avg = total / sub;
+
+            String result;
+            if (avg >= 50) {
+                result = "Pass";
+            } else {
+                result = "Fail";
+            }
+
+            System.out.println(name + " " + total + " " + avg + " " + result);
+        }
+    }
+}

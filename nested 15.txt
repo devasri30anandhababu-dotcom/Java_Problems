@@ -1,0 +1,24 @@
+import java.util.*;
+public class nested15{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int days = sc.nextInt();   
+        int start = sc.nextInt();  
+        System.out.println("Calendar Grid:");
+        System.out.println("Mon Tue Wed Thu Fri Sat Sun");
+        int space = start - 1;
+        for (int i = 1; i <= space; i++) {
+            System.out.print("    ");
+        }
+
+        int count = space;
+        for (int i = 1; i <= days; i++) {
+            System.out.print(i + " ");
+            count++;
+
+            if (count % 7 == 0) {
+                System.out.println();
+            }
+        }
+    }
+} 

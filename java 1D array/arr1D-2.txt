@@ -1,0 +1,36 @@
+import java.util.*;
+public class arr2{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int [] mark=new int[n];
+        for(int i=0;i<n;i++){
+            mark[i]=sc.nextInt();
+        }
+        int max=0;
+        int min=mark[0];
+        for(int j=0;j<n;j++){
+            if(mark[j]>max){
+                max=mark[j];
+            }
+        }
+        for(int k=0;k<n;k++){
+            if(mark[k]<min){
+                min=mark[k];
+            }
+        }
+        int count=0;
+        for(int i=0;i<n;i++){
+            if(mark[i]<40){
+                count++;
+            }
+        }
+        double per=0.0;
+        per=(n-count)/n*100.0;
+        System.out.println("Total Students: "+n);
+        System.out.println("Highest Score: "+max);
+        System.out.println("Lowest Score: "+min);
+        System.out.println("Failed Students: "+count);
+        System.out.println("Pass Percentage: "+per+"%");
+    }
+}

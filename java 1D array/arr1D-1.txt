@@ -1,0 +1,30 @@
+import java.util.*;
+public class arr1{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        double [] salary=new double[n];
+        for(int i=0;i<n;i++){
+            salary[i]=sc.nextDouble();
+        }
+        double tot=0.0;
+        for(int i=0;i<n;i++){
+            tot=tot+salary[i];
+        }
+        double avg=tot/n;
+        int count=0;
+        double per=0.00;
+        for(int k=0;k<n;k++){
+            if(salary[k]>=avg){
+                count++;
+            }
+        }
+        per=(double)count/n*100;
+        System.out.println("Total Employees: "+n);
+        System.out.println("Average Salary: "+avg);
+        System.out.println("Employees Above Average: "+count);
+        System.out.println("Percentage: "+per+"%");
+        
+        
+    }
+}

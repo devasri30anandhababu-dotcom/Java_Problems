@@ -1,0 +1,50 @@
+import java.util.*;
+
+public class ar1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int r = sc.nextInt(); 
+        int c = sc.nextInt(); 
+
+        char[][] seats = new char[r][c];
+
+       
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                seats[i][j] = 'A';
+            }
+        }
+
+        int booked = sc.nextInt(); 
+
+       
+        for (int k = 0; k < booked; k++) {
+            int i = sc.nextInt();
+            int j = sc.nextInt();
+            seats[i][j] = 'B';
+        }
+
+    
+        System.out.println("Seating Chart:");
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                System.out.print(seats[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+     
+        int totalSeats = r * c;
+        int availableSeats = totalSeats - booked;
+
+        double occupancy = (double) booked / totalSeats;
+        int occupancyPercent = (int)(occupancy * 10000); 
+
+
+        System.out.println("\nTotal Seats: " + totalSeats);
+        System.out.println("Booked Seats: " + booked);
+        System.out.println("Available Seats: " + availableSeats);
+        System.out.println("Occupancy Rate: " + occupancyPercent + "%");
+    }
+}

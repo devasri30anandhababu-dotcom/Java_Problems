@@ -1,0 +1,13 @@
+static void countEvenOdd(int[][] arr, int r, int c) {
+    int even = 0, odd = 0;
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            if(arr[i][j] % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+    }
+    System.out.println("Even = " + even);
+    System.out.println("Odd = " + odd);
+}

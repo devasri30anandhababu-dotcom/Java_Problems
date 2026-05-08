@@ -1,0 +1,10 @@
+static void add(int[][] a, int[][] b, int r, int c) {
+    int[][] res = new int[r][c];
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            res[i][j] = a[i][j] + b[i][j];
+            System.out.print(res[i][j] + " ");
+        }
+        System.out.println();
+    }
+}

@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class InventoryGrid {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int row = sc.nextInt();
+        int col = sc.nextInt();
+
+        int[][] a = new int[row][col];
+
+        int sum = 0;
+        int max = 0;
+        int maxRow = 0;
+        int maxCol = 0;
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                a[i][j] = sc.nextInt();
+                sum = sum + a[i][j];
+
+                if (a[i][j] > max) {
+                    max = a[i][j];
+                    maxRow = i;
+                    maxCol = j;
+                }
+            }
+        }
+
+        System.out.println("Inventory Grid:");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+        System.out.println("Total Inventory: " + sum);
+        System.out.println("Max Stock Zone: Row " + maxRow + ", Col " + maxCol + " (" + max + " units)");
+
+        int avg = (sum * 100) / (row * col);
+        System.out.println("Average Stock per Zone: " + avg);
+    }
+}

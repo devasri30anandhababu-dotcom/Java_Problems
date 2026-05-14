@@ -1,0 +1,37 @@
+import java.util.*;
+public class product{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int r=sc.nextInt();
+        int c=sc.nextInt();
+        int [][] pro=new int [r][c];
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                pro[i][j]=sc.nextInt();
+            }
+        }
+        System.out.println("Sales Data:");
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                System.out.print(pro[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println("Product-wise Total Sales:");
+        int max=0;
+        int count=0;
+        for(int i=0;i<r;i++){
+            int sum=0;
+            for(int j=0;j<c;j++){
+                sum+=pro[i][j];
+            }
+            System.out.println("Product"+count+":"+sum);
+            count++;
+            if(sum>max){
+                max=sum;
+            }
+        }
+        System.out.println("Best-Selling Product: Product "+count+" with "+max+" units");
+        
+    } 
+}

@@ -1,0 +1,39 @@
+import java.util.*;
+public class arr5{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int [] time=new int[n];
+        for(int i=0;i<n;i++){
+            time[i]=sc.nextInt();
+        }
+        int max=time[0];
+        for(int i=0;i<n;i++){
+          if(time[i]>max){
+              max=time[i];
+          }  
+        }
+        double tot=0.00;
+        for(int j=0;j<n;j++){
+            tot=tot+time[j];
+        }
+        double ave=tot/n;
+        double avg=(ave*100.00)/100.00;
+        int count=0;
+        int min=60;
+        for(int k=0;k<n;k++){
+            if(time[k]>min){
+                count++;
+            }
+        }
+        double se=0.0;
+        se=(double)(n-count)/n*100;
+        double ser=(se*100.00)/100.00;
+        System.out.println("Total Patients: "+n);
+        System.out.println("Longest Wait Time: "+max+" minutes");
+        System.out.println("Average Wait Time: "+avg+" minutes");
+        System.out.println("Patients Waitng > 60 min:"+count);
+        System.out.println("Service Level:"+ser+"%");
+        
+    }
+}

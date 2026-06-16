@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int amount = sc.nextInt();
+
+        int[] notes = {100, 50, 20, 10, 5, 2, 1};
+
+        for (int note : notes) {
+
+            int count = amount / note;
+
+            System.out.println(count + " Note(s) of " + note + ".00");
+
+            amount = amount % note;
+        }
+
+        sc.close();
+    }
+}

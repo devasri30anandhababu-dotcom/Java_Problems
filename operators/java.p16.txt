@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double L = sc.nextDouble();
+        double W = sc.nextDouble();
+
+        double areaSqFeet = L * W;
+        double areaSqYards = areaSqFeet / 9.0;
+
+        System.out.printf("%.2f", areaSqYards);
+
+        sc.close();
+    }
+}

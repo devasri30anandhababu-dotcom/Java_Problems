@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double L = sc.nextDouble();
+        double W = sc.nextDouble();
+        double H = sc.nextDouble();
+        double P = sc.nextDouble();
+        double S = sc.nextDouble();
+
+        double area = 2 * L * H + 2 * W * H;
+        int gallons = (int)(area / S + 0.9999);
+        double cost = gallons * P;
+
+        System.out.printf("Total Cost: %.2f", cost);
+
+        sc.close();
+    }
+}

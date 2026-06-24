@@ -1,0 +1,91 @@
+class Solution {
+    static final long MOD = 1000000007L;
+    int size;
+
+    long[][] multiply(long[][] a, long[][] b) {
+        long[][] c = new long[size][size];
+
+        for (int i = 0; i < size; i++) {
+            for (int k = 0; k < size; k++) {
+                if (a[i][k] == 0) continue;
+
+                for (int j = 0; j < size; j++) {
+                    c[i][j] = (c[i][j] + a[i][k] * b[k][j]) % MOD;
+                }
+            }
+        }
+        return c;
+    }
+
+    long[][] power(long[][] a, long n) {
+        long[][] result = new long[size][size];
+
+        for (int i = 0; i < size; i++) {
+            result[i][i] = 1;
+        }
+
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                result = multiply(result, a);
+            }
+
+            a = multiply(a, a);
+            n >>= 1;
+        }
+
+        return result;
+    }
+
+    long[] multiply(long[][] a, long[] b) {
+        long[] result = new long[size];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                result[i] = (result[i] + a[i][j] * b[j]) % MOD;
+            }
+        }
+
+        return result;
+    }
+
+    public int zigZagArrays(int n, int l, int r) {
+
+        int m = r - l + 1;
+        size = 2 * m;
+
+        long[][] transition = new long[size][size];
+
+        for (int i = 0; i < m; i++) {
+
+            int up = 2 * i;
+            int down = 2 * i + 1;
+
+            for (int j = 0; j < i; j++) {
+                transition[up][2 * j + 1] = 1;
+            }
+
+            for (int j = i + 1; j < m; j++) {
+                transition[down][2 * j] = 1;
+            }
+        }
+
+        long[] dp = new long[size];
+
+        for (int i = 0; i < m; i++) {
+            dp[2 * i] = i;
+            dp[2 * i + 1] = m - i - 1;
+        }
+
+        long[][] matrix = power(transition, n - 2);
+
+        long[] result = multiply(matrix, dp);
+
+        long answer = 0;
+
+        for (long x : result) {
+            answer = (answer + x) % MOD;
+        }
+
+        return (int) answer;
+    }
+}

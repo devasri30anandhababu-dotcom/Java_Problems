@@ -11,7 +11,7 @@ class Solution {
         return start;
     }
     public static boolean canEat(int []piles,int h,int mid){
-    int curH=0;
+    long curH=0;
     for(int each:piles) curH +=(each+mid-1)/mid;
     return curH<=h;
     }

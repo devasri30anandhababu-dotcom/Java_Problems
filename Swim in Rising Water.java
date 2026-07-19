@@ -1,0 +1,31 @@
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+class Solution {
+    public int swimInWater(int[][] grid) {
+        int size = grid.length;
+        boolean[][] visit = new boolean[size][size];
+        PriorityQueue<int[]> pq = new PriorityQueue<>(
+            Comparator.comparingInt(a->a[0]));
+        visit[0][0]=true;
+        pq.offer(new int[]{grid[0][0],0,0});
+        int result = 0;
+        int[][] dir = {{1,0},{-1,0},{0,1},{0,-1}};
+        while(!pq.isEmpty()){
+            int[] cur = pq.poll();
+            int ht = cur[0], row=cur[1], col=cur[2];
+            result = Math.max(result,ht);
+            if(row==size-1&&col==size-1) return result;
+            for(int[] d:dir){
+                int nr=row+d[0], nc = col+d[1];
+                if(nr>=0&&nr<size&&nc>=0&&nc<size
+                    &&!visit[nr][nc]){
+                    visit[nr][nc]=true;
+                    pq.offer(new int[]{grid[nr][nc],nr,nc});
+                }
+            }
+        }
+        return -1;
+    }
+    
+}

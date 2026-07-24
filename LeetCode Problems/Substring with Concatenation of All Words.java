@@ -1,39 +1,57 @@
 class Solution {
     public List<Integer> findSubstring(String s, String[] words) {
-        List<Integer> ans = new ArrayList<>();
-        if (s == null || s.length() == 0 || words.length == 0)
-            return ans;
+        List<Integer> res = new ArrayList<>();
+
+        if (s == null || s.length() == 0 || words == null || words.length == 0)
+            return res;
 
         Map<String, Integer> map = new HashMap<>();
-        for (String word : words)
+        for (String word : words) {
             map.put(word, map.getOrDefault(word, 0) + 1);
-
-        int wordLen = words[0].length();
-        int totalWords = words.length;
-        int totalLen = wordLen * totalWords;
-
-        for (int i = 0; i <= s.length() - totalLen; i++) {
-            Map<String, Integer> seen = new HashMap<>();
-            int j = 0;
-
-            while (j < totalWords) {
-                String word = s.substring(i + j * wordLen, i + (j + 1) * wordLen);
-
-                if (!map.containsKey(word))
-                    break;
-
-                seen.put(word, seen.getOrDefault(word, 0) + 1);
-
-                if (seen.get(word) > map.get(word))
-                    break;
-
-                j++;
-            }
-
-            if (j == totalWords)
-                ans.add(i);
         }
 
-        return ans;
+        int wordLen = words[0].length();
+        int wordCount = words.length;
+
+        for (int i = 0; i < wordLen; i++) {
+            int left = i;
+            int count = 0;
+            Map<String, Integer> window = new HashMap<>();
+
+            for (int right = i; right + wordLen <= s.length(); right += wordLen) {
+
+                String word = s.substring(right, right + wordLen);
+
+                if (map.containsKey(word)) {
+                    window.put(word, window.getOrDefault(word, 0) + 1);
+                    count++;
+
+                    while (window.get(word) > map.get(word)) {
+                        String leftWord = s.substring(left, left + wordLen);
+                        window.put(leftWord, window.get(leftWord) - 1);
+                        left += wordLen;
+                        count--;
+                    }
+
+                    if (count == wordCount) {
+                        res.add(left);
+
+                        String leftWord = s.substring(left, left + wordLen);
+                        window.put(leftWord, window.get(leftWord) - 1);
+                        left += wordLen;
+                        count--;
+                    }
+
+                } else {
+                    window.clear();
+                    count = 0;
+                    left = right + wordLen;
+                }
+            }
+        }
+
+        return res;
     }
 }
+
+  
